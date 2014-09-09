@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    The Yooniverse <small>Blog and Stay Connected!</small>
+                </h1>
+            </div>
+            <blockquote>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                </p> <small>Someone famous <cite>Source Title</cite></small>
+            </blockquote>
+        </div>
+        <div class="col-md-4 column well well-lg" ng-repeat="p in posts | filter: { Hidden: false }">
+            <h3>
+                {{p.Title}}
+            </h3>
+            <p>
+                {{p.Body}}
+            </p>
+            <p>
+                <a id="modal-{{p.PostId}}" href="#modal-container-{{p.PostId}}" role="button" class="btn" data-toggle="modal">Comment</a>
+            </p>
+            <div class="modal fade" id="modal-container-{{p.PostId}}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                {{p.Title}}
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                {{p.Body}}
+                            </div>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            @*<div>
+                                Comment:<input type="text" class="form-control" placeholder="comment here" ng-model="comment.CommentBody" />
+                            </div>*@
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Post Comment</button>
+                            @*<div>
+                                {{p.Comments.CommentBody}}
+                            </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 column">
+
+    <div class="modal fade" id="modal-container-662212" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Modal title
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script src="~/Scripts/!app.js"></script>
+}
